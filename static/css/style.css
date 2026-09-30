@@ -1,0 +1,86 @@
+/* MLBB Theme Palette */
+:root {
+    --mlbb-dark-bg: #0b0e14;
+    --mlbb-card-bg: rgba(18, 26, 41, 0.85);
+    --mlbb-gold: #f3a833;
+    --mlbb-gold-hover: #ffd166;
+    --mlbb-cyan: #00f0ff;
+    --mlbb-blue: #1e3a8a;
+    --mlbb-border-gold: rgba(243, 168, 51, 0.3);
+    --mlbb-border-cyan: rgba(0, 240, 255, 0.3);
+    --text-primary: #e2e8f0;
+    --text-muted: #94a3b8;
+}
+
+body {
+    background-color: var(--mlbb-dark-bg);
+    color: var(--text-primary);
+    font-family: 'Cinzel', 'Rajdhani', 'Segoe UI', sans-serif;
+    background-image: radial-gradient(circle at 50% 10%, rgba(30, 58, 138, 0.25), transparent 70%),
+                      radial-gradient(circle at 80% 80%, rgba(243, 168, 51, 0.1), transparent 50%);
+    min-height: 100vh;
+}
+
+.mlbb-card {
+    background: var(--mlbb-card-bg);
+    border: 1px solid var(--mlbb-border-gold);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(243, 168, 51, 0.05);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.mlbb-card:hover {
+    border-color: var(--mlbb-gold);
+    box-shadow: 0 0 20px rgba(243, 168, 51, 0.25);
+}
+
+.mlbb-btn-gold {
+    background: linear-gradient(135deg, #c5821c 0%, #f3a833 50%, #e69519 100%);
+    color: #0b0e14;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid #ffe082;
+    box-shadow: 0 0 10px rgba(243, 168, 51, 0.4);
+    transition: all 0.3s ease;
+}
+
+.mlbb-btn-gold:hover {
+    background: linear-gradient(135deg, #f3a833 0%, #ffd166 100%);
+    box-shadow: 0 0 20px rgba(243, 168, 51, 0.8);
+    color: #000;
+}
+
+.mlbb-header {
+    color: var(--mlbb-gold);
+    text-shadow: 0 0 10px rgba(243, 168, 51, 0.5);
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.mlbb-table {
+    color: var(--text-primary);
+    border-color: var(--mlbb-border-gold);
+}
+
+.mlbb-table th {
+    background: rgba(243, 168, 51, 0.1);
+    color: var(--mlbb-gold);
+    border-bottom: 2px solid var(--mlbb-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.badge-mythic {
+    background: linear-gradient(45deg, #00f0ff, #1e3a8a);
+    color: #fff;
+    border: 1px solid var(--mlbb-cyan);
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+.badge-gold {
+    background: linear-gradient(45deg, #f3a833, #8a5a00);
+    color: #fff;
+    border: 1px solid var(--mlbb-gold);
+}

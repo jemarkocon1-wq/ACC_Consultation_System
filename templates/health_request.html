@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card mlbb-card p-4">
+            <h3 class="mlbb-header mb-3"><i class="fa-solid fa-paper-plane me-2"></i>SUBMIT HEALTH REQUEST</h3>
+            <form method="POST" action="{{ url_for('student.submit_request') }}">
+                <div class="mb-3">
+                    <label class="form-label text-warning">Request Type</label>
+                    <select name="request_type" class="form-select bg-dark text-light border-secondary" required>
+                        <option value="Medical Clearance">Medical Clearance</option>
+                        <option value="General Consultation">General Consultation</option>
+                        <option value="Clinic Excuse Slip">Clinic Excuse Slip</option>
+                        <option value="Dental/Physical Exam">Dental / Physical Exam</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label text-warning">Reason / Symptoms</label>
+                    <textarea name="reason" rows="4" class="form-control bg-dark text-light border-secondary" placeholder="Describe your request or medical condition..." required></textarea>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <a href="{{ url_for('student.dashboard') }}" class="btn btn-outline-secondary"><i class="fa-solid fa-xmark me-1"></i> Cancel</a>
+                    <button type="submit" class="btn mlbb-btn-gold"><i class="fa-solid fa-paper-plane me-1"></i> Submit Request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

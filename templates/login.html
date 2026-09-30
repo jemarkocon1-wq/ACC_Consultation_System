@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center" style="min-height: 75vh;">
+    <div class="col-md-5">
+        <div class="card mlbb-card p-4">
+            <div class="text-center mb-4">
+                <h2 class="mlbb-header fs-3"><i class="fa-solid fa-crown me-2"></i>PORTAL LOGIN</h2>
+                <p class="text-muted small">Abuyog Community College Health Care</p>
+            </div>
+            <form method="POST" action="{{ url_for('auth.login') }}">
+                <div class="mb-3">
+                    <label class="form-label text-warning"><i class="fa-solid fa-user me-1"></i> Username</label>
+                    <input type="text" name="username" class="form-control bg-dark text-light border-secondary" required autofocus>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label text-warning"><i class="fa-solid fa-key me-1"></i> Password</label>
+                    <input type="password" name="password" class="form-control bg-dark text-light border-secondary" required>
+                </div>
+                <button type="submit" class="btn mlbb-btn-gold w-100 py-2"><i class="fa-solid fa-bolt me-2"></i>ENTER SYSTEM</button>
+            </form>
+            <div class="mt-4 pt-3 border-top border-secondary text-center text-muted small">
+                <p class="mb-1">Demo Default Credentials:</p>
+                <p class="mb-0"><strong>Admin:</strong> admin / admin123 | <strong>Medical:</strong> doc_smith / doc123 | <strong>Student:</strong> student1 / student123</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

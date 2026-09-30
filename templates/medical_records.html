@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12 d-flex justify-content-between align-items-center">
+        <h2 class="mlbb-header"><i class="fa-solid fa-notes-medical me-2"></i>STUDENT MEDICAL RECORDS</h2>
+        <a href="{{ url_for('medical.dashboard') }}" class="btn btn-outline-warning btn-sm"><i class="fa-solid fa-arrow-left me-1"></i> Back to Hub</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mlbb-card p-3">
+            <div class="table-responsive">
+                <table class="table mlbb-table align-middle">
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Blood</th>
+                            <th>Height/Weight</th>
+                            <th>Allergies & Conditions</th>
+                            <th>Clearance Status</th>
+                            <th>Update</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for rec in records %}
+                        <tr>
+                            <td><strong>{{ rec.student.full_name }}</strong><br><small class="text-muted">@{{ rec.student.username }}</small></td>
+                            <form method="POST" action="{{ url_for('medical.update_record', record_id=rec.id) }}">
+                                <td>
+                                    <input type="text" name="blood_type" value="{{ rec.blood_type }}" class="form-control form-control-sm bg-dark text-light border-secondary" style="width: 70px;">
+                                </td>
+                                <td>
+                                    <div class="d-flex gap-1">
+                                        <input type="number" step="0.1" name="height_cm" value="{{ rec.height_cm }}" placeholder="cm" class="form-control form-control-sm bg-dark text-light border-secondary" style="width: 70px;">
+                                        <input type="number" step="0.1" name="weight_kg" value="{{ rec.weight_kg }}" placeholder="kg" class="form-control form-control-sm bg-dark text-light border-secondary" style="width: 70px;">
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="text" name="allergies" value="{{ rec.allergies }}" class="form-control form-control-sm bg-dark text-light border-secondary mb-1" placeholder="Allergies">
+                                    <input type="text" name="existing_conditions" value="{{ rec.existing_conditions }}" class="form-control form-control-sm bg-dark text-light border-secondary" placeholder="Conditions">
+                                </td>
+                                <td>
+                                    <select name="clearance_status" class="form-select form-select-sm bg-dark text-light border-secondary">
+                                        <option value="Cleared" {% if rec.clearance_status == 'Cleared' %}selected{% endif %}>Cleared</option>
+                                        <option value="Pending Review" {% if rec.clearance_status == 'Pending Review' %}selected{% endif %}>Pending Review</option>
+                                        <option value="Needs Followup" {% if rec.clearance_status == 'Needs Followup' %}selected{% endif %}>Needs Followup</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn mlbb-btn-gold btn-sm"><i class="fa-solid fa-floppy-disk me-1"></i> Save</button>
+                                </td>
+                            </form>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
