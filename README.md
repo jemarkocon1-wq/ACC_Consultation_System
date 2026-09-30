@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Abuyog Community College - Health & Medical Record System
 
 A full-stack Flask web application featuring Role-Based Access Control (RBAC) and a *Mobile Legends: Bang Bang* inspired UI design theme.
@@ -145,3 +146,7 @@ To add a new role (e.g., `Faculty` or `Department Head`):
        <a href="{{ url_for('faculty.faculty_dashboard') }}">Faculty Hub</a>
    {% endif %}
    ```
+=======
+# ACC_Consultation_System
+ ABUYOG COMMUNITY COLLEGE CONSULTATION SYSTEM
+>>>>>>> bb83b4bc02c5c24066afea3fd0948fe6730d7275
